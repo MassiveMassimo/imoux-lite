@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+import wavingHand from "@/images/wavingHand.webp";
+---
+
+<Layout
+  title="Imo Madjid 𝓁𝒾𝓉𝑒"
+  description="Welcome to my 𝓁𝒾𝓉𝑒 portfolio! This is the place where I showcase my experiences as a product designer and frontend engineer!"
+>
+  <main class="">
+    <section class="px-32 flex items-center justify-center min-h-screen">
+      <h1
+        class="flex items-center text-5xl/[1.25] bg-clip-text text-transparent bg-gradient-to-b from-slate-100 to-slate-400 font-bold gap-2"
+      >
+        <Image src={wavingHand} alt="Waving hand emoji" class="h-12 w-12" />
+         Hey there!
+      </h1>
+    </section>
+  </main>
+</Layout>
