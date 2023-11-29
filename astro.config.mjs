@@ -1,4 +1,5 @@
 import tailwind from "@astrojs/tailwind";
+import vercel from "@astrojs/vercel/serverless";
 import favicons from "astro-favicons";
 import { defineConfig } from "astro/config";
 
@@ -12,4 +13,10 @@ export default defineConfig({
       faviconsDarkMode: true,
     }),
   ],
+  output: "server",
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+  }),
 });
