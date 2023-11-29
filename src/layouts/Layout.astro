@@ -1,5 +1,6 @@
 ---
 import "@fontsource-variable/inter";
+import { SEO } from "astro-seo";
 
 interface Props {
   title: string;
@@ -13,14 +14,32 @@ const { description } = Astro.props;
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <meta property="og:image" content="/og-image.png" />
-    <meta property="twitter:image" content="/og-image.png" />
-    <title>{title}</title>
+    <SEO
+      title={title}
+      description={description}
+      canonical={Astro.request.url}
+      openGraph={{
+        basic: {
+          title: title,
+          type: "website",
+          image: "/og-image.png",
+          url: Astro.request.url,
+        },
+      }}
+      twitter={{
+        creator: "",
+        image: "/og-image.png",
+        title: title,
+        description: description,
+      }}
+      extend={{
+        link: [{ rel: "icon", href: "/favicon.svg", type: "image/svg+xml" }],
+        meta: [
+          { name: "viewport", content: "width=device-width" },
+          { name: "generator", content: Astro.generator },
+        ],
+      }}
+    />
   </head>
   <body class="bg-slate-900">
     <slot />
